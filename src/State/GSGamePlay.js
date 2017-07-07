@@ -122,6 +122,16 @@ var GSGamePlayMainLayer = cc.Layer.extend({
 		this.vignetteRight.setZOrder (9999);
 		this.addChild(this.vignetteRight);
 		
+		
+		this.playAgainAlpha = 0;
+		this.lblPlayAgain = new cc.LabelTTF("Touch anywhere to play again...", "Verdana", 25);
+        this.lblPlayAgain.setColor(cc.color(170, 210, 255));
+        this.lblPlayAgain.setPosition(cc.p(CANVAS_W * 0.5, CANVAS_H * 0.2 - 75));
+		this.lblPlayAgain.setAnchorPoint(cc.p(0.5, 0.5));
+		this.lblPlayAgain.setZOrder (500);
+		this.lblPlayAgain.setOpacity(0);
+        this.addChild(this.lblPlayAgain);
+		
 
 
 		this.player = new Player(CANVAS_W * 0.5, CANVAS_H * 0.5, this);
@@ -406,6 +416,14 @@ var GSGamePlayMainLayer = cc.Layer.extend({
 			this.endscreenBG.setPositionY(CANVAS_H * 0.75 + this.endGameAlpha * 0.2);
 			this.endScreen.setOpacity(this.endGameAlpha);
 			this.endScreen.setPositionY(CANVAS_H * 0.75 + this.endGameAlpha * 0.2);
+			
+			if (this.endGameAlpha == 255) {
+				this.playAgainAlpha += deltaTime * 0.3;
+				if (this.playAgainAlpha > 255) {
+					this.playAgainAlpha = 255;
+				}
+				this.lblPlayAgain.setOpacity(this.playAgainAlpha);
+			}
 		}
 		
 		if (this.screenShakeCount > 0) {
@@ -447,6 +465,12 @@ var GSGamePlayMainLayer = cc.Layer.extend({
 			onTouchEnded: function (touch, event) {
 				if (!instance.endGame) {
 					instance.player.SetShooting(false);					
+				}
+				else {
+					if (instance.playAgainAlpha > 128) {
+						cc.director.getScheduler().setTimeScale(1);
+						ResetGame();
+					}
 				}
 				//manhnd: to test this.
 				//instance.playUnlockParticle (SKILL_2_POSITION_OFFSET_X, SKILL_2_POSITION_OFFSET_Y);

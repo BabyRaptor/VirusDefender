@@ -17,7 +17,10 @@ function GoToGamePlay () {
 	}
 	cc.director.runScene(new cc.TransitionFade(1, g_gsGamePlay));
 }
-
+function ResetGame () {
+	g_gsGamePlay = new GSGamePlay();
+	cc.director.runScene(new cc.TransitionFade(1, g_gsGamePlay));
+}
 
 
 

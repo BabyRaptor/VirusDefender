@@ -61,7 +61,9 @@ function AntiSpam(layer) {
 	this.Update = function (deltaTime) {
 		if (this.enable) {
 			for(var i = 0; i < this.coreSprite.length; i++){
-				this.coreSprite[i].setOpacity(this.coreSprite[i].getOpacity() - deltaTime * 0.7);
+				var temp = this.coreSprite[i].getOpacity() - deltaTime * 0.7;
+				if (temp < 0) temp = 0;
+				this.coreSprite[i].setOpacity(temp);
 			}
 	
 			var possibleTargets = layer.enemyPool1.concat(layer.enemyPool2.concat(layer.enemyPool3));

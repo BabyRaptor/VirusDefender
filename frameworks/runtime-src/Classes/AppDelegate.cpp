@@ -181,3 +181,19 @@ void AppDelegate::applicationWillEnterForeground()
     SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
     SimpleAudioEngine::getInstance()->resumeAllEffects();
 }
+
+static u_long myNextRandom = 1;
+double atof(const char *nptr)
+{
+    return (strtod(nptr, NULL));
+}
+
+int rand(void)
+{
+    return (int)((myNextRandom = (1103515245 * myNextRandom) + 12345) % ((u_long)RAND_MAX + 1));
+}
+
+void srand(u_int seed)
+{
+    myNextRandom = seed;
+}

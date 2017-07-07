@@ -1,2 +1,2 @@
 # VirusDefender
-A HTML5 / Android advertising demo for AVG
+A HTML5 / Android advertising game demo for AVG, using Cocos2D. You need Cocos2D installed, and understanding to build this project. The runable HTML5 version and Android APK should already be in the "Pulish" folder.
