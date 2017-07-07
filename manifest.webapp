@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "name": "GameJam2015",
+  "description": "GameJam2015",
+  "launch_path": "/index.html",
+  "icons": {
+    "128": "/res/icon.png"
+  },
+  "developer": {
+    "name": "Hoang Tuan Minh",
+    "url": "https://www.facebook.com/SocuteRaptor"
+  },
+  "default_locale": "en",
+  "installs_allowed_from": [
+    "*"
+  ],
+  "orientation": "landscape-primary",
+  "fullscreen": "true"
+}

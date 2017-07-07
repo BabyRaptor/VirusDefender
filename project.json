@@ -1,0 +1,31 @@
+{
+    "project_type": "javascript",
+
+    "debugMode" : 0,
+    "showFPS" : false,
+    "frameRate" : 60,
+    "id" : "gameCanvas",
+    "renderMode" : 0,
+    "engineDir":"frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d"],
+
+    "jsList" : [
+		"src/Resource.js",
+		"src/Audio.js",
+		"src/Setting.js",
+		"src/Button.js",
+		"src/TextImpress.js",
+        "src/State/GSLoader.js",
+		"src/State/GSGamePlay.js",
+		"src/Object/Player.js",
+		"src/Object/Bullet.js",
+		"src/Object/Enemy1.js",
+		"src/Object/Enemy2.js",
+		"src/Object/Enemy3.js",
+        "src/Object/Shield.js",
+        "src/Object/AntiSpam.js",
+        "src/Object/PriorityUpdate.js",
+		"src/Object/Sparkler.js"
+    ]
+}
